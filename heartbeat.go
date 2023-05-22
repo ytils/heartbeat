@@ -12,6 +12,9 @@ const (
 )
 
 // HookFn is the signature of hook functions.
+// timeout is the configured timeout of the Heartbeat.
+// idle is the time passed since the last Beat() call.
+// left is the time left until the Heartbeat context is cancelled if there will be no Beat() call.
 type HookFn func(timeout, idle, left time.Duration)
 
 // Options defines optional parameters of Heartbeat.
@@ -24,7 +27,7 @@ type Options struct {
 	CancelHook HookFn
 }
 
-// Heartbeat holds the context Ctx() that is cancelled after the configured timeout passes since the last Beat() call.
+// Heartbeat holds the context Ctx() that is cancelled after the timeout passes since the last Beat() call.
 type Heartbeat struct {
 	timeout       time.Duration
 	checkInterval time.Duration
