@@ -1,0 +1,20 @@
+# Template: https://github.com/github/gitignore/blob/main/community/Golang/Go.AllowList.gitignore
+
+# Ignore everything
+*
+
+# But not these files...
+!/.gitignore
+!/.gitattributes
+
+!*.go
+
+!go.sum
+!go.mod
+!Makefile
+
+!README.md
+!LICENSE
+
+# ...even if they are in subdirectories
+!*/
